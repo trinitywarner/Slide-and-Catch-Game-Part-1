@@ -1,0 +1,70 @@
+Milestone Plan
+
+1. game scene with background image 
+2. add basic sprite
+3. add a keyboard motion to sprite
+4. add single coin with reset, falling an boundary behaviors
+5. add collision effect between sprite and coin
+6. modify for multiple coins including collision behavior
+
+
+class Pickle(simpleGE.Sprite):
+	def __init__(self, scene):
+		super()__init__(scene)
+		self.setImage(pickle png)
+		self.setSize(##, ##)
+		self.minSpeed gets #
+		self.maxSpeed gets #
+
+	def reset(self):
+		self.y gets #
+
+		self.x get random randit(self.minSpeed, self.maxSpeed)
+		
+		self.dy gets random randit(self.minSpeed, self.maxSpeed)
+
+	def checkBounds(self):
+		if self.bottom > self.screenHeight:
+			self.reset()
+
+class Burger(simpleGE,.Sprite):
+	def __init__(self, scene):
+		super().__init__(scene)
+		self.setImage(burger#7 png)
+		self.setSize(##, ##)
+		self.position gets (###, ###)
+		self.moveSpeed gets #
+
+	def process(self):
+		if self.isKeyPressed(pygame.K_LEFT):
+			self.x -= self.moveSpeed
+		if self.isKeyPressed(pygame.L_RIGHT):
+			self.x += self.moveSpeed
+
+class Game(simpleGE.Scene):
+	def __init__(self):
+		super().__init__()
+		self.setImage(backgroung png)
+
+		self.numPickles gets #
+
+		self.burger gets Burger(self)
+
+		self.pickles gets []
+		for i in range(self.numPickles):
+			self.pickles.append(Pickle(self))
+
+		self.sprites gets [self.burger,
+				   self.pickles]
+
+	def process(self):
+		for pickle in self pickles:
+			if coin.collidesWith(self.burger):
+				coin.reset()
+
+def main():
+	game gets Game()
+	game.start()
+
+if __name__ equal to __main__
+	main()
